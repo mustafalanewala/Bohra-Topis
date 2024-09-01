@@ -16,16 +16,14 @@ module.exports.registerUser = async function (req, res) {
       bcrypt.hash(password, salt, async function (err, hash) {
         if (err) return res.send(err.message);
         else {
-          let user = await userModel.create({
+          await userModel.create({
             email,
             password: hash,
             fullname,
           });
 
-          let token = generateToken(user);
-          res.cookie("token", token);
-
-          res.redirect("/shop");
+          req.flash("success", "Account created, now login.");
+          res.redirect("/");
         }
       });
     });
