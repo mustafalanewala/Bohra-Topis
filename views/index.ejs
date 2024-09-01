@@ -1,66 +1,72 @@
-<%- include('./partials/header') %>
+<%- include('./partials/header') %> 
 
-<div class="w-full h-screen flex items-center justify-start px-12 bg-gray-200 bg-cover bg-center" style="background-image: url('/images/1.jpg');">
-    <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg overflow-hidden p-4">
-        <!-- Button Container -->
-        <div class="flex gap-2">
-            <button id="signup-btn" class="w-1/2 py-3 text-xl font-semibold transition-colors duration-300 rounded-lg bg-blue-500 text-white">Signup</button>
-            <button id="login-btn" class="w-1/2 py-3 text-xl font-semibold transition-colors duration-300 rounded-lg bg-white text-gray-700">Login</button>
-        </div>
-        
-        <!-- Form Container -->
-        <div class="p-8">
-            <!-- Error Message -->
-            <% if (error.length > 0) { %>
-                <div class="mb-4 p-3 rounded-md bg-red-500 text-white text-center">
-                    <%= error %>
-                </div>
-            <% } %>
+<% if(error.length > 0) { %>
+<div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500">
+  <span class="inline-block mt-1 mb-1 text-white"> <%= error %> </span>
+</div>
+<% } %>
 
-            <!-- Signup Form -->
-            <div id="signup-form" class="form-section">
-                <h3 class="text-4xl mb-4 font-bold">Welcome to <span class="text-blue-400 font-semibold">Bohra Topis</span></h3>
-                <h4 class="text-2xl mb-6">Create Your Account</h4>
-                <form autocomplete="off" action="/users/register" method="post">
-                    <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="Full Name" name="fullname">
-                    <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="email" placeholder="Email" name="email">
-                    <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" placeholder="Password" name="password">
-                    <input class="block w-full py-3 text-xl mt-4 bg-blue-500 text-white rounded-full cursor-pointer transition-colors duration-300 hover:bg-blue-600 active:bg-blue-700" type="submit" value="Create My Account">
-                </form>
-            </div>
-
-            <!-- Login Form -->
-            <div id="login-form" class="form-section hidden">
-                <h3 class="text-4xl mb-4 font-bold">Welcome to <span class="text-blue-400 font-semibold">Bohra Topis</span></h3>
-                <h4 class="text-2xl mb-6 capitalize">Login to Your Account</h4>
-                <form autocomplete="off" action="/users/login" method="post">
-                    <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="email" placeholder="Email" name="email">
-                    <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" placeholder="Password" name="password">
-                    <input class="block w-full py-3 text-xl mt-4 bg-blue-500 text-white rounded-full cursor-pointer transition-colors duration-300 hover:bg-blue-600 active:bg-blue-700" type="submit" value="Login">
-                </form>
-            </div>
-        </div>
+<div class="w-full h-screen flex items-center justify-start px-12 bg-gray-200 bg-cover bg-center" style="background-image: url('/images/1.jpg')">
+  <div class="max-w-4xl w-full bg-white rounded-lg shadow-lg overflow-hidden p-4">
+    
+    <!-- Button Container -->
+    <div class="flex gap-2">
+      <button id="signup-btn" class="w-1/2 py-3 text-xl font-semibold transition-colors duration-300 rounded-lg bg-blue-500 text-white">
+        Signup
+      </button>
+      <button id="login-btn" class="w-1/2 py-3 text-xl font-semibold transition-colors duration-300 rounded-lg bg-white text-gray-700">
+        Login
+      </button>
     </div>
+
+    <!-- Form Container -->
+    <div class="p-8">
+      
+      <!-- Signup Form -->
+      <div id="signup-form" class="form-section">
+        <h3 class="text-4xl mb-4 font-bold">Welcome to <span class="text-blue-400 font-semibold">Bohra Topis</span></h3>
+        <h4 class="text-2xl mb-6">Create Your Account</h4>
+        <form autocomplete="off" action="/users/register" method="post" id="signup-form-element">
+          <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" placeholder="Full Name" name="fullname" />
+          <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="email" placeholder="Email" name="email" />
+          <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" placeholder="Password" name="password" />
+          <input class="block w-full py-3 text-xl mt-4 bg-blue-500 text-white rounded-full cursor-pointer transition-colors duration-300 hover:bg-blue-600 active:bg-blue-700" type="submit" value="Create My Account" />
+        </form>
+      </div>
+
+      <!-- Login Form -->
+      <div id="login-form" class="form-section hidden">
+        <h3 class="text-4xl mb-4 font-bold">Welcome to <span class="text-blue-400 font-semibold">Bohra Topis</span></h3>
+        <h4 class="text-2xl mb-6 capitalize">Login to Your Account</h4>
+        <form autocomplete="off" action="/users/login" method="post" id="login-form-element">
+          <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="email" placeholder="Email" name="email" />
+          <input class="block w-full px-4 py-3 border border-gray-300 rounded-md mb-4 bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500" type="password" placeholder="Password" name="password" />
+          <input class="block w-full py-3 text-xl mt-4 bg-blue-500 text-white rounded-full cursor-pointer transition-colors duration-300 hover:bg-blue-600 active:bg-blue-700" type="submit" value="Login" />
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-    document.getElementById('login-btn').addEventListener('click', function() {
-        document.getElementById('login-form').classList.remove('hidden');
-        document.getElementById('signup-form').classList.add('hidden');
-        this.classList.add('bg-blue-500', 'text-white');
-        this.classList.remove('bg-white', 'text-gray-700');
-        document.getElementById('signup-btn').classList.add('bg-white', 'text-gray-700');
-        document.getElementById('signup-btn').classList.remove('bg-blue-500', 'text-white');
-    });
+  // Toggle between signup and login forms
+  document.getElementById("login-btn").addEventListener("click", function () {
+    document.getElementById("login-form").classList.remove("hidden");
+    document.getElementById("signup-form").classList.add("hidden");
+    this.classList.add("bg-blue-500", "text-white");
+    this.classList.remove("bg-white", "text-gray-700");
+    document.getElementById("signup-btn").classList.add("bg-white", "text-gray-700");
+    document.getElementById("signup-btn").classList.remove("bg-blue-500", "text-white");
+  });
 
-    document.getElementById('signup-btn').addEventListener('click', function() {
-        document.getElementById('signup-form').classList.remove('hidden');
-        document.getElementById('login-form').classList.add('hidden');
-        this.classList.add('bg-blue-500', 'text-white');
-        this.classList.remove('bg-white', 'text-gray-700');
-        document.getElementById('login-btn').classList.add('bg-white', 'text-gray-700');
-        document.getElementById('login-btn').classList.remove('bg-blue-500', 'text-white');
-    });
+  document.getElementById("signup-btn").addEventListener("click", function () {
+    document.getElementById("signup-form").classList.remove("hidden");
+    document.getElementById("login-form").classList.add("hidden");
+    this.classList.add("bg-blue-500", "text-white");
+    this.classList.remove("bg-white", "text-gray-700");
+    document.getElementById("login-btn").classList.add("bg-white", "text-gray-700");
+    document.getElementById("login-btn").classList.remove("bg-blue-500", "text-white");
+  });
 </script>
 
 <%- include('./partials/footer') %>
