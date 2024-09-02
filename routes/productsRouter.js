@@ -5,16 +5,11 @@ const productModel = require("../models/product-model");
 
 router.post("/create", upload.single("image"), async function (req, res) {
     try {
-        let {
-            name,
-            price,
-            discount,
-            bgcolor,
-            panelcolor,
-            textcolor, } = req.body;
+        let { name, price, discount, bgcolor, panelcolor, textcolor } = req.body;
 
         if (!req.file) {
-            throw new Error("File upload failed. Please ensure an image is uploaded.");
+            req.flash("error", "File upload failed. Please ensure an image is uploaded.");
+            return res.redirect("/owners/admin");
         }
 
         let product = await productModel.create({
@@ -27,11 +22,11 @@ router.post("/create", upload.single("image"), async function (req, res) {
             textcolor,
         });
 
-        req.flash("success", "Product created succesfully.");
+        req.flash("success", "Product created successfully.");
         res.redirect("/owners/admin");
-    }
-    catch (err) {
-        res.send(err.message);
+    } catch (err) {
+        req.flash("error", err.message);
+        res.redirect("/owners/admin");
     }
 });
 
