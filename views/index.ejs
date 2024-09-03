@@ -19,7 +19,7 @@
     <%- include('./partials/header') %> <% if (messages.error &&
     messages.error.length > 0) { %>
     <div
-      class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500"
+      class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-red-500 z-50"
     >
       <span class="inline-block mt-1 mb-1 text-white"
         ><%= messages.error[0] %></span
@@ -27,7 +27,7 @@
     </div>
     <% } %> <% if (messages.success && messages.success.length > 0) { %>
     <div
-      class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-green-500"
+      class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-green-500 z-50"
     >
       <span class="inline-block mt-1 mb-1 text-white"
         ><%= messages.success[0] %></span
