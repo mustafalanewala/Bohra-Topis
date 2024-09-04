@@ -81,5 +81,18 @@ router.get("/admin", function (req, res) {
 });
 
 
+// Assuming `isloggedin` middleware is already implemented
+router.get("/myaccount", isloggedin, (req, res) => {
+    // Render the myaccount page or handle the request
+    res.render("myaccount", { user: req.user });
+});
+
+router.get("/update-profile", isloggedin, (req, res) => {
+    let success = req.flash("success");
+    let error = req.flash("error");
+    res.render("update-profile", { success, error });
+});
+
+
 
 module.exports = router;
