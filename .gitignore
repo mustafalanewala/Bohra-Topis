@@ -1,4 +1,4 @@
 node_modules
 .env
 config/keys.js
-controllers/userController
+controllers/userController.js
