@@ -3,7 +3,7 @@ const router = express.Router();
 const isloggedin = require("../middlewares/isLoggedIn");
 const { registerUser, loginUser, logout } = require("../controllers/authController");
 const { updateProfile } = require('../controllers/userController');
-const upload = require('../middlewares/upload');
+const upload = require('../config/multer-config'); // Adjust the path as needed
 
 
 router.get("/", function (req, res) {
@@ -12,9 +12,9 @@ router.get("/", function (req, res) {
 
 router.post("/register", registerUser);
 
-router.post("/login", loginUser); 
+router.post("/login", loginUser);
 
-router.post("/logout", logout); 
+router.post("/logout", logout);
 
 router.post('/update-profile', isloggedin, upload.single('picture'), updateProfile);
 
