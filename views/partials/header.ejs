@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bohra Topis</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        font-family: 'Poppins', sans-serif;
-      }
-      .navbar-blur {
-        backdrop-filter: blur(10px);
-      }
-    </style>
-  </head>
 
-  <body>
-    <!-- Navbar -->
-    <nav class="w-full fixed top-0 left-0 flex justify-between items-center px-5 py-4 bg-transparent text-black shadow-lg z-50 navbar-blur">
-      <h3 class="text-xl font-bold">Bohra Topis</h3>
-      <% if (typeof loggedin !== "undefined" && loggedin) { %>
-      <div class="flex gap-6 text-lg font-semibold">
-        <a href="/shop" class="hover:text-gray-600 transition-colors duration-200">Shop</a>
-        <a href="/cart" class="hover:text-gray-600 transition-colors duration-200">Cart</a>
-        <a href="/account" class="hover:text-gray-600 transition-colors duration-200">My Account</a>
-        <a href="/logout" class="text-red-600 hover:text-red-500 transition-colors duration-200">Logout</a>
-      </div>
-      <% } %>
-    </nav>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bohra Topis</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar-blur {
+      backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="w-full fixed top-0 left-0 flex justify-between items-center px-5 py-4 bg-transparent text-black shadow-lg z-50 navbar-blur">
+    <h3 class="text-xl font-bold">Bohra Topis</h3>
+    <% if (typeof loggedin !== "undefined" && loggedin) { %>
+    <div class="flex gap-6 text-lg font-semibold">
+      <a href="/shop" class="hover:text-gray-600 transition-colors duration-200">Shop</a>
+      <a href="/cart" class="hover:text-gray-600 transition-colors duration-200">Cart</a>
+      <a href="/account" class="hover:text-gray-600 transition-colors duration-200">My Account</a>
+      <a href="/logout" class="text-red-600 hover:text-red-500 transition-colors duration-200">Logout</a>
+    </div>
+    <% } %>
+  </nav>
+</body>
+
 </html>

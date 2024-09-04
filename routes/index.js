@@ -58,4 +58,28 @@ router.get("/logout", isloggedin, function (req, res) {
     res.redirect("/"); // Redirect to the homepage or login page
 });
 
+
+// Route to render owner-login page
+router.get("/owner-login", function (req, res) {
+    let success = req.flash("success");
+    let error = req.flash("error");
+    res.render("owner-login", { success, error});
+});
+
+// Route to render createproducts page
+router.get("/createproducts", function (req, res) {
+    let success = req.flash("success");
+    let error = req.flash("error");
+    res.render("createproducts", { success, error });
+});
+
+// Route to render admin page
+router.get("/admin", function (req, res) {
+    let success = req.flash("success");
+    let error = req.flash("error");
+    res.render("admin", { success, error });
+});
+
+
+
 module.exports = router;
